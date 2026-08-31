@@ -1,0 +1,38 @@
+# Secrets and local configuration
+.env
+.env.*
+!.env.example
+.streamlit/secrets.toml
+
+# Python
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# IDE and local agent files
+.idea/
+.vscode/
+.agents/
+.codex/
+
+# Local datasets, thesis sources, and generated artifacts
+2021_german_doctor_reviews.csv/
+doc licenta/
+outputs/
+*.zip
+*.webm
+*.pptx
+*.pdf
+
+# Completed one-time migrations superseded by the current setup scripts
+migrate_users_to_supabase_auth.py
+remove_legacy_password_hash.sql
+review_daily_uniqueness.sql
+
+# Operating system files
+.DS_Store
+Thumbs.db
