@@ -52,6 +52,55 @@ Popularity Points     = min(10, Review Count * 2)
 - Supabase Auth and Row Level Security
 - pandas
 
+## Database Schema
+
+The application uses five public PostgreSQL tables. User profiles are linked to identities managed by Supabase Auth.
+
+```mermaid
+erDiagram
+    AUTH_USERS ||--|| USERS : owns
+    USERS ||--o{ REVIEWS : writes
+    SPECIALTIES ||--o{ DOCTORS : groups
+    DOCTORS ||--o{ REVIEWS : receives
+    DOCTORS ||--|| REVIEWS_SUMMARY : has
+
+    AUTH_USERS {
+        uuid id PK
+    }
+    USERS {
+        uuid id PK
+        varchar username UK
+        varchar email UK
+        timestamptz created_at
+    }
+    SPECIALTIES {
+        uuid id PK
+        varchar name UK
+    }
+    DOCTORS {
+        uuid id PK
+        varchar full_name
+        varchar stamp UK
+        uuid specialty_id FK
+    }
+    REVIEWS {
+        bigint id PK
+        uuid user_id FK
+        uuid doctor_id FK
+        integer stars
+        text review_text
+        jsonb ai_tags
+        float consistency_score
+        timestamptz created_at
+    }
+    REVIEWS_SUMMARY {
+        uuid doctor_id PK, FK
+        float average_rating
+        integer review_count
+        text summary
+    }
+```
+
 ## Project Structure
 
 ```text
