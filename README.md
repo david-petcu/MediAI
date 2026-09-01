@@ -1,5 +1,7 @@
 # MediAI
 
+**English** | [Română](README_RO.md)
+
 MediAI is a Streamlit application for searching doctors and exploring patient feedback. It combines conventional ratings with AI generated tags, review consistency analysis, doctor summaries, and a recommendation score calculated in Python.
 
 The project was developed as a bachelor's thesis prototype. Its doctor profiles and imported reviews are demonstration data and must not be interpreted as verified medical information or clinical assessments.
